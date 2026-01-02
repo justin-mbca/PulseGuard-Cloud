@@ -1,0 +1,37 @@
+# === AWS & Security ===
+# Never commit your credentials or access keys
+.aws/
+credentials
+*.csv
+*.pem
+*.json
+# Exception: allow specific config files if they don't contain secrets
+!simulator/schema.json 
+
+# === Terraform ===
+# Local provider plugins and modules
+.terraform/
+.terraform.lock.hcl
+
+# State files (contains sensitive infra data and passwords in plain text!)
+*.tfstate
+*.tfstate.*
+
+# Variables files (where you might store secret DB passwords)
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+.env
+
+# === Operating System ===
+.DS_Store
+Thumbs.db
