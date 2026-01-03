@@ -2,23 +2,23 @@
 
 ```mermaid
 flowchart TD
-	VPC[VPC: pulseguard-clinical-vpc]
+	VPC[VPC]
 	subgraph Public_Subnet_10_0_1_0_24
-		Bastion[Bastion Host (EC2)]
-		IGW[Internet Gateway]
+		Bastion[Bastion_Host_EC2]
+		IGW[Internet_Gateway]
 	end
 	subgraph Private_Subnet_10_0_2_0_24
-		RDS[RDS: clinical_insights (Postgres)]
+		RDS[RDS_clinical_insights]
 	end
-	S3[S3 Bucket: pulseguard-raw-telemetry]
+	S3[S3_Bucket_raw_telemetry]
 
 	VPC --> IGW
 	IGW --> Bastion
-	Bastion -- SSH Tunnel 5432 --> RDS
+	Bastion -- SSH_Tunnel_5432 --> RDS
 	VPC --> RDS
 	VPC --> S3
-	Bastion -. Admin SSH .-> Bastion
-	RDS -. Data Storage .-> S3
+	Bastion -.-> Bastion
+	RDS -.-> S3
 ```
 # Next Steps: PulseGuard Clinical Telemetry Roadmap
 
