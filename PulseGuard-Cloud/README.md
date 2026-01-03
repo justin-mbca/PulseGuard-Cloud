@@ -1,3 +1,25 @@
+# Architecture Diagram (Mermaid)
+
+```mermaid
+flowchart TD
+	A[VPC: pulseguard-clinical-vpc]
+	subgraph Public Subnet (10.0.1.0/24)
+		B[Bastion Host (EC2)]
+		IGW[Internet Gateway]
+	end
+	subgraph Private Subnet (10.0.2.0/24)
+		C[RDS: clinical_insights (Postgres)]
+	end
+	S3[S3 Bucket: pulseguard-raw-telemetry]
+
+	A --> IGW
+	IGW --> B
+	B -- SSH Tunnel 5432 --> C
+	A --> C
+	A --> S3
+	B -. Admin SSH .->|22| B
+	C -. Data Storage .-> S3
+```
 # Next Steps: PulseGuard Clinical Telemetry Roadmap
 
 Building on Phase 1 (Infrastructure & Schema), the next phases for a **Medical Data Specialist** at a company like Boston Scientific would transition from "building the house" to "automating the data flow" and "ensuring regulatory compliance."
