@@ -1,16 +1,40 @@
+# About Boston Scientific
+
+Boston Scientific transforms lives through innovative medical technologies that improve the health of patients around the world. As a global medical technology leader for more than 40 years, we advance science for life by providing a broad range of high-performance solutions that address unmet patient needs and reduce the cost of health care. Our portfolio of devices and therapies helps physicians diagnose and treat complex cardiovascular, respiratory, digestive, oncological, neurological and urological diseases and conditions.
+
+# Role Relevance: Medical Data Specialist II
+
+This project demonstrates:
+- Secure, HIPAA-compliant cloud data architecture (AWS, Terraform)
+- Automated ETL pipelines and real-time data ingestion (Python, Spark, Lambda)
+- Clinical data modeling (PostgreSQL, FHIR/HL7-ready schemas)
+- API/data delivery design (RESTful, HL7/FHIR integration planned)
+- Automation, monitoring, and compliance (CI/CD, CloudTrail, encryption)
+
+# Skills Demonstrated
+
+- **ETL Development:** Automated pipelines with Python, Spark, AWS Glue
+- **Data Modeling:** Clinical schemas in PostgreSQL, FHIR/HL7-ready
+- **Cloud Platforms:** HIPAA-compliant AWS setup
+- **Programming:** Python, SQL, Spark
+- **APIs & Integration:** (Planned) RESTful, HL7/FHIR
+- **Automation:** Terraform, GitHub Actions
+
 # Architecture Diagram (Mermaid)
 
 ```mermaid
 flowchart TD
-	VPC[VPC]
+	VPC[VPC\n(HIPAA boundary)]
 	subgraph Public_Subnet_10_0_1_0_24
-		Bastion[Bastion_Host_EC2]
+		Bastion[Bastion_Host_EC2\n(API/Data Ingestion Layer)]
 		IGW[Internet_Gateway]
 	end
 	subgraph Private_Subnet_10_0_2_0_24
-		RDS[RDS_clinical_insights]
+		RDS[RDS_clinical_insights\n(PostgreSQL, Encrypted, Audit Logging)]
 	end
-	S3[S3_Bucket_raw_telemetry]
+	S3[S3_Bucket_raw_telemetry\n(Encrypted, ETL/Analytics)]
+	ETL[ETL/Streaming (Spark/Glue/Lambda)]
+	Monitor[Monitoring & Audit (CloudTrail, Activity Streams)]
 
 	VPC --> IGW
 	IGW --> Bastion
@@ -19,6 +43,10 @@ flowchart TD
 	VPC --> S3
 	Bastion -.-> Bastion
 	RDS -.-> S3
+	S3 --> ETL
+	RDS --> ETL
+	RDS --> Monitor
+	S3 --> Monitor
 ```
 # Next Steps: PulseGuard Clinical Telemetry Roadmap
 
