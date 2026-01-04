@@ -1,3 +1,46 @@
+---
+
+## How to Restart Your Infrastructure and pgAdmin 4
+
+If you have terminated your AWS resources to save costs, follow these steps to restart your PulseGuard-Cloud infrastructure and access your PostgreSQL database with pgAdmin 4:
+
+### 1. Restart AWS Infrastructure with Terraform
+
+1. Open a terminal and navigate to the terraform directory:
+	```sh
+	cd terraform
+	```
+2. Initialize Terraform (only needed if not already initialized):
+	```sh
+	terraform init
+	```
+3. Apply the Terraform configuration to recreate all resources:
+	```sh
+	terraform apply
+	```
+	- Review the plan and type `yes` to confirm.
+	- Wait for the process to complete. Note the output values for the Bastion public IP and RDS endpoint.
+
+### 2. Access PostgreSQL with pgAdmin 4
+
+1. Start pgAdmin 4 on your local machine.
+2. Set up an SSH tunnel from your local machine to the Bastion Host:
+	```sh
+	ssh -i /path/to/your/pulseguard-key.pem -L 5432:<RDS_ENDPOINT>:5432 ec2-user@<BASTION_PUBLIC_IP>
+	```
+	- Replace `/path/to/your/pulseguard-key.pem` with your actual key file path.
+	- Replace `<RDS_ENDPOINT>` and `<BASTION_PUBLIC_IP>` with the values from the Terraform output.
+	- Keep this terminal window open while using pgAdmin.
+3. In pgAdmin 4, create a new connection:
+	- **Host:** `localhost`
+	- **Port:** `5432`
+	- **Username:** `pulse_admin`
+	- **Password:** `changeMe123!` (or your updated password)
+	- **Database:** `clinical_insights`
+
+You should now be able to connect to your AWS RDS PostgreSQL instance securely via pgAdmin 4.
+
+---
 # About Boston Scientific
 
 Boston Scientific transforms lives through innovative medical technologies that improve the health of patients around the world. As a global medical technology leader for more than 40 years, we advance science for life by providing a broad range of high-performance solutions that address unmet patient needs and reduce the cost of health care. Our portfolio of devices and therapies helps physicians diagnose and treat complex cardiovascular, respiratory, digestive, oncological, neurological and urological diseases and conditions.
