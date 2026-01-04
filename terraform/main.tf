@@ -108,7 +108,7 @@ resource "aws_instance" "bastion" {
 
 # 9. RDS Postgres Database
 resource "aws_db_instance" "clinical_insights" {
-  identifier           = "clinical-insights"
+  identifier           = "clinical-insights-v2"
   allocated_storage    = 20
   engine               = "postgres"
   engine_version       = "15"
