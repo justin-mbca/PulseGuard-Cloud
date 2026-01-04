@@ -24,32 +24,32 @@ This project demonstrates:
 
 ```mermaid
 flowchart TD
-	VPC[VPC\n(HIPAA boundary)]
+	VPC["VPC<br>(HIPAA boundary)"]
+	IGW["Internet Gateway"]
 	subgraph Public_Subnet_10_0_1_0_24
-		Bastion[Bastion Host (EC2)\nAPI/Data Ingestion Layer\nPython, Flask/FastAPI]
-		IGW[Internet Gateway]
+		Bastion["Bastion Host (EC2)<br>API/Data Ingestion Layer<br>Python, Flask/FastAPI"]
 	end
 	subgraph Private_Subnet_10_0_2_0_24
-		RDS[RDS clinical_insights\n(PostgreSQL, Encrypted, Audit Logging, FHIR/HL7-ready)]
-		Lambda[AWS Lambda\n(Serverless ETL, Data Validation)]
-		Glue[AWS Glue\n(ETL Pipelines)]
-		Spark[Spark/EMR\n(Streaming Analytics)]
+		RDS["RDS clinical_insights<br>(PostgreSQL, Encrypted, Audit Logging, FHIR/HL7-ready)"]
+		Lambda["AWS Lambda<br>(Serverless ETL, Data Validation)"]
+		Glue["AWS Glue<br>(ETL Pipelines)"]
+		Spark["Spark/EMR<br>(Streaming Analytics)"]
 	end
-	S3[S3 Bucket raw_telemetry\n(Encrypted, Data Lake)]
-	Athena[Athena\n(Historical Analytics)]
-	Monitor[Monitoring & Audit\n(CloudTrail, Activity Streams, KMS)]
-	Secrets[AWS Secrets Manager\n(Credentials)]
-	CI[CI/CD Pipeline\n(GitHub Actions, Terraform)]
-	API[RESTful API, HL7/FHIR\n(Data Integration)]
-	SNS[AWS SNS\n(Real-time Alerts)]
-	Dashboard[Dashboard\n(Streamlit/QuickSight)]
+	S3["S3 Bucket raw_telemetry<br>(Encrypted, Data Lake)"]
+	Athena["Athena<br>(Historical Analytics)"]
+	Monitor["Monitoring & Audit<br>(CloudTrail, Activity Streams, KMS)"]
+	Secrets["AWS Secrets Manager<br>(Credentials)"]
+	CI["CI/CD Pipeline<br>GitHub Actions, Terraform"]
+	API["RESTful API, HL7/FHIR<br>Data Integration"]
+	SNS["AWS SNS<br>Real-time Alerts"]
+	Dashboard["Dashboard<br>Streamlit/QuickSight"]
+	Terraform["Terraform<br>Infrastructure as Code"]
 
 	VPC --> IGW
 	IGW --> Bastion
-	Bastion -- SSH Tunnel 5432 --> RDS
+	Bastion -- "SSH Tunnel 5432" --> RDS
 	VPC --> RDS
 	VPC --> S3
-	Bastion -.-> Bastion
 	RDS -.-> S3
 	S3 --> Glue
 	S3 --> Spark
@@ -82,7 +82,6 @@ flowchart TD
 	Terraform --> Lambda
 	Terraform --> Glue
 	Terraform --> Bastion
-	Terraform --> Security
 	S3 --> Secrets
 	RDS --> Secrets
 	Lambda --> Secrets
