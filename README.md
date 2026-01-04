@@ -26,28 +26,95 @@ This project demonstrates:
 flowchart TD
 	VPC[VPC\n(HIPAA boundary)]
 	subgraph Public_Subnet_10_0_1_0_24
-		Bastion[Bastion_Host_EC2\n(API/Data Ingestion Layer)]
-		IGW[Internet_Gateway]
+		Bastion[Bastion Host (EC2)\nAPI/Data Ingestion Layer\nPython, Flask/FastAPI]
+		IGW[Internet Gateway]
 	end
 	subgraph Private_Subnet_10_0_2_0_24
-		RDS[RDS_clinical_insights\n(PostgreSQL, Encrypted, Audit Logging)]
+		RDS[RDS clinical_insights\n(PostgreSQL, Encrypted, Audit Logging, FHIR/HL7-ready)]
+		Lambda[AWS Lambda\n(Serverless ETL, Data Validation)]
+		Glue[AWS Glue\n(ETL Pipelines)]
+		Spark[Spark/EMR\n(Streaming Analytics)]
 	end
-	S3[S3_Bucket_raw_telemetry\n(Encrypted, ETL/Analytics)]
-	ETL[ETL/Streaming (Spark/Glue/Lambda)]
-	Monitor[Monitoring & Audit (CloudTrail, Activity Streams)]
+	S3[S3 Bucket raw_telemetry\n(Encrypted, Data Lake)]
+	Athena[Athena\n(Historical Analytics)]
+	Monitor[Monitoring & Audit\n(CloudTrail, Activity Streams, KMS)]
+	Secrets[AWS Secrets Manager\n(Credentials)]
+	CI[CI/CD Pipeline\n(GitHub Actions, Terraform)]
+	API[RESTful API, HL7/FHIR\n(Data Integration)]
+	SNS[AWS SNS\n(Real-time Alerts)]
+	Dashboard[Dashboard\n(Streamlit/QuickSight)]
 
 	VPC --> IGW
 	IGW --> Bastion
-	Bastion -- SSH_Tunnel_5432 --> RDS
+	Bastion -- SSH Tunnel 5432 --> RDS
 	VPC --> RDS
 	VPC --> S3
 	Bastion -.-> Bastion
 	RDS -.-> S3
-	S3 --> ETL
-	RDS --> ETL
-	RDS --> Monitor
+	S3 --> Glue
+	S3 --> Spark
+	S3 --> Athena
 	S3 --> Monitor
+	S3 --> Lambda
+	Lambda --> RDS
+	Lambda --> Glue
+	Glue --> RDS
+	Glue --> Spark
+	Spark --> RDS
+	RDS --> Monitor
+	RDS --> Athena
+	RDS --> API
+	API --> Bastion
+	API --> Lambda
+	API --> Glue
+	API --> RDS
+	API --> S3
+	API --> Dashboard
+	Dashboard --> Athena
+	Dashboard --> S3
+	Dashboard --> RDS
+	Athena --> Dashboard
+	Monitor --> CI
+	CI --> Terraform
+	Terraform --> VPC
+	Terraform --> RDS
+	Terraform --> S3
+	Terraform --> Lambda
+	Terraform --> Glue
+	Terraform --> Bastion
+	Terraform --> Security
+	S3 --> Secrets
+	RDS --> Secrets
+	Lambda --> Secrets
+	Lambda --> SNS
+	SNS --> Dashboard
 ```
+
+## Tool & Technology Map
+
+| Category                | Tools/Technologies                                                                 |
+|-------------------------|-----------------------------------------------------------------------------------|
+| ETL & Data Pipelines    | Python, Spark, AWS Glue, AWS Lambda, EMR                                          |
+| Data Modeling           | PostgreSQL, FHIR/HL7 schemas, OMOP                                                |
+| Cloud Infrastructure    | AWS (VPC, EC2, RDS, S3, Lambda, Glue, Athena, CloudTrail, KMS, SNS, QuickSight)   |
+| Infrastructure as Code  | Terraform                                                                         |
+| Programming             | Python, SQL, Scala, Bash                                                          |
+| APIs & Integration      | RESTful API, HL7/FHIR, EHR/Device Integration                                     |
+| Automation & CI/CD      | GitHub Actions, Terraform, Python scripts                                         |
+| Security & Compliance   | IAM, SSH Tunneling, Encryption, Audit Logging, Secrets Manager                    |
+| Monitoring & Analytics  | CloudTrail, Activity Streams, Athena, QuickSight, Streamlit                       |
+| Real-time Alerts        | AWS SNS                                                                           |
+
+**Legend:**
+- **ETL/Streaming:** Spark, Glue, Lambda, Python
+- **Data Modeling:** PostgreSQL, FHIR/HL7, OMOP
+- **Cloud:** AWS (S3, RDS, Lambda, Glue, Athena, CloudTrail, KMS, SNS, QuickSight, Secrets Manager)
+- **Infrastructure:** Terraform
+- **APIs & Integration:** RESTful, HL7/FHIR (planned)
+- **Automation:** GitHub Actions, CI/CD
+- **Security:** IAM, SSH Tunneling, Encryption, Audit Logging
+
+All tools above are referenced in the Medical Data Specialist II JD and are either implemented or planned in this project.
 # Next Steps: PulseGuard Clinical Telemetry Roadmap
 
 Building on Phase 1 (Infrastructure & Schema), the next phases for a **Medical Data Specialist** at a company like Boston Scientific would transition from "building the house" to "automating the data flow" and "ensuring regulatory compliance."
