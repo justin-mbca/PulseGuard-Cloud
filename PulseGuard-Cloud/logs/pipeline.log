@@ -1,0 +1,745 @@
+2026-01-04 22:17:56,045 INFO Processed and stored: valid_4.json
+2026-01-04 22:17:56,046 INFO Processed and stored: sample_telemetry.json
+2026-01-04 22:17:56,047 WARNING Invalid file invalid_3.json: 'Timestamp' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '5105',
+     'PatientName': 'Bob Jones',
+     'DOB': '1975-09-23',
+     'BPM': 102,
+     'SpO2': 92}
+2026-01-04 22:17:56,048 INFO Processed and stored: valid_8.json
+2026-01-04 22:17:56,050 INFO Processed and stored: valid_9.json
+2026-01-04 22:17:56,051 WARNING Invalid file invalid_2.json: 'SpO2' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '2151',
+     'PatientName': 'Alice Smith',
+     'DOB': '1980-05-12',
+     'BPM': 74,
+     'Timestamp': '2025-12-26T04:14:26Z'}
+2026-01-04 22:17:56,053 INFO Processed and stored: valid_5.json
+2026-01-04 22:17:56,054 INFO Processed and stored: valid_2.json
+2026-01-04 22:17:56,055 INFO Processed and stored: valid_3.json
+2026-01-04 22:17:56,056 INFO Processed and stored: invalid_4.json
+2026-01-04 22:17:56,058 INFO Processed and stored: valid_0.json
+2026-01-04 22:17:56,059 INFO Processed and stored: valid_1.json
+2026-01-04 22:17:56,060 INFO Processed and stored: valid_6.json
+2026-01-04 22:17:56,061 INFO Processed and stored: invalid_1.json
+2026-01-04 22:17:56,062 INFO Processed and stored: invalid_0.json
+2026-01-04 22:17:56,063 INFO Processed and stored: valid_7.json
+2026-01-04 22:38:17,460 INFO Processed and stored: valid_4.json
+2026-01-04 22:38:17,462 INFO Processed and stored: sample_telemetry.json
+2026-01-04 22:38:17,463 INFO Processed and stored: valid_8.json
+2026-01-04 22:38:17,464 INFO Processed and stored: valid_9.json
+2026-01-04 22:38:17,466 INFO Processed and stored: valid_5.json
+2026-01-04 22:38:17,468 INFO Processed and stored: valid_2.json
+2026-01-04 22:38:17,471 INFO Processed and stored: valid_3.json
+2026-01-04 22:38:17,473 INFO Processed and stored: invalid_4.json
+2026-01-04 22:38:17,474 INFO Processed and stored: valid_0.json
+2026-01-04 22:38:17,477 INFO Processed and stored: valid_1.json
+2026-01-04 22:38:17,479 INFO Processed and stored: valid_6.json
+2026-01-04 22:38:17,480 INFO Processed and stored: invalid_1.json
+2026-01-04 22:38:17,481 INFO Processed and stored: invalid_0.json
+2026-01-04 22:38:17,482 INFO Processed and stored: valid_7.json
+2026-01-04 22:39:04,466 INFO Test files generated in data/raw.
+2026-01-04 22:39:38,030 INFO ALICE SMITH: Avg BPM=82.9, Avg SpO2=97.0
+2026-01-04 22:39:38,030 INFO CHARLIE LEE: Avg BPM=94.5, Avg SpO2=94.4
+2026-01-04 22:39:38,030 INFO BOB JONES: Avg BPM=85.3, Avg SpO2=96.1
+2026-01-04 22:39:38,031 INFO Exported patient summary to patient_summary.csv
+2026-01-04 22:43:50,772 INFO Test files generated in data/raw.
+2026-01-04 22:43:50,922 INFO Processed and stored: valid_4.json
+2026-01-04 22:43:50,923 INFO Processed and stored: sample_telemetry.json
+2026-01-04 22:43:50,924 INFO Processed and stored: invalid_3.json
+2026-01-04 22:43:50,925 INFO Processed and stored: valid_8.json
+2026-01-04 22:43:50,926 INFO Processed and stored: valid_9.json
+2026-01-04 22:43:50,927 INFO Processed and stored: invalid_2.json
+2026-01-04 22:43:50,927 INFO Processed and stored: valid_5.json
+2026-01-04 22:43:50,928 INFO Processed and stored: valid_2.json
+2026-01-04 22:43:50,929 INFO Processed and stored: valid_3.json
+2026-01-04 22:43:50,930 WARNING Invalid file invalid_4.json: 'BPM' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '6687',
+     'PatientName': 'Alice Smith',
+     'DOB': '1980-05-12',
+     'SpO2': 93,
+     'Timestamp': '2025-12-29T04:43:50Z'}
+2026-01-04 22:43:50,931 INFO Processed and stored: valid_0.json
+2026-01-04 22:43:50,932 INFO Processed and stored: valid_1.json
+2026-01-04 22:43:50,933 INFO Processed and stored: valid_6.json
+2026-01-04 22:43:50,934 WARNING Invalid file invalid_1.json: 'DOB' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '4854',
+     'PatientName': 'Alice Smith',
+     'BPM': 108,
+     'SpO2': 95,
+     'Timestamp': '2026-01-02T04:43:50Z'}
+2026-01-04 22:43:50,939 WARNING Invalid file invalid_0.json: 'SpO2' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '2898',
+     'PatientName': 'Bob Jones',
+     'DOB': '1975-09-23',
+     'BPM': 76,
+     'Timestamp': '2025-12-15T04:43:50Z'}
+2026-01-04 22:43:50,940 INFO Processed and stored: valid_7.json
+2026-01-04 22:44:47,229 INFO Test files generated in data/raw.
+2026-01-04 22:44:47,418 INFO Processed and stored: valid_4.json
+2026-01-04 22:44:47,419 INFO Processed and stored: sample_telemetry.json
+2026-01-04 22:44:47,419 WARNING Invalid file invalid_3.json: 150 is greater than the maximum of 100
+
+Failed validating 'maximum' in schema['properties']['SpO2']:
+    {'type': 'integer', 'minimum': 0, 'maximum': 100}
+
+On instance['SpO2']:
+    150
+2026-01-04 22:44:47,420 INFO Processed and stored: valid_8.json
+2026-01-04 22:44:47,421 INFO Processed and stored: valid_9.json
+2026-01-04 22:44:47,422 WARNING Invalid file invalid_2.json: -5 is less than the minimum of 0
+
+Failed validating 'minimum' in schema['properties']['SpO2']:
+    {'type': 'integer', 'minimum': 0, 'maximum': 100}
+
+On instance['SpO2']:
+    -5
+2026-01-04 22:44:47,424 INFO Processed and stored: valid_5.json
+2026-01-04 22:44:47,424 INFO Processed and stored: valid_2.json
+2026-01-04 22:44:47,425 INFO Processed and stored: valid_3.json
+2026-01-04 22:44:47,426 INFO Processed and stored: invalid_4.json
+2026-01-04 22:44:47,427 INFO Processed and stored: valid_0.json
+2026-01-04 22:44:47,428 INFO Processed and stored: valid_1.json
+2026-01-04 22:44:47,429 INFO Processed and stored: valid_6.json
+2026-01-04 22:44:47,431 INFO Processed and stored: invalid_1.json
+2026-01-04 22:44:47,431 WARNING Invalid file invalid_0.json: 150 is greater than the maximum of 100
+
+Failed validating 'maximum' in schema['properties']['SpO2']:
+    {'type': 'integer', 'minimum': 0, 'maximum': 100}
+
+On instance['SpO2']:
+    150
+2026-01-04 22:44:47,432 INFO Processed and stored: valid_7.json
+2026-01-04 22:45:15,062 INFO Test files generated in data/raw.
+2026-01-04 22:45:15,222 INFO Processed and stored: valid_4.json
+2026-01-04 22:45:15,223 INFO Processed and stored: sample_telemetry.json
+2026-01-04 22:45:15,224 WARNING Invalid file invalid_3.json: -5 is less than the minimum of 0
+
+Failed validating 'minimum' in schema['properties']['SpO2']:
+    {'type': 'integer', 'minimum': 0, 'maximum': 100}
+
+On instance['SpO2']:
+    -5
+2026-01-04 22:45:15,225 INFO Processed and stored: valid_8.json
+2026-01-04 22:45:15,226 INFO Processed and stored: valid_9.json
+2026-01-04 22:45:15,226 WARNING Invalid file invalid_2.json: 150 is greater than the maximum of 100
+
+Failed validating 'maximum' in schema['properties']['SpO2']:
+    {'type': 'integer', 'minimum': 0, 'maximum': 100}
+
+On instance['SpO2']:
+    150
+2026-01-04 22:45:15,227 INFO Processed and stored: valid_5.json
+2026-01-04 22:45:15,228 INFO Processed and stored: valid_2.json
+2026-01-04 22:45:15,229 INFO Processed and stored: valid_3.json
+2026-01-04 22:45:15,230 INFO Processed and stored: invalid_4.json
+2026-01-04 22:45:15,231 INFO Processed and stored: valid_0.json
+2026-01-04 22:45:15,232 INFO Processed and stored: valid_1.json
+2026-01-04 22:45:15,233 INFO Processed and stored: valid_6.json
+2026-01-04 22:45:15,233 WARNING Invalid file invalid_1.json: 150 is greater than the maximum of 100
+
+Failed validating 'maximum' in schema['properties']['SpO2']:
+    {'type': 'integer', 'minimum': 0, 'maximum': 100}
+
+On instance['SpO2']:
+    150
+2026-01-04 22:45:15,234 WARNING Invalid file invalid_0.json: 'BPM' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '9189',
+     'PatientName': 'Bob Jones',
+     'DOB': '1975-09-23',
+     'SpO2': 97,
+     'Timestamp': '2025-12-12T04:45:15Z'}
+2026-01-04 22:45:15,235 INFO Processed and stored: valid_7.json
+2026-01-04 22:45:29,459 INFO Test files generated in data/raw.
+2026-01-04 22:45:29,608 INFO Processed and stored: valid_4.json
+2026-01-04 22:45:29,609 INFO Processed and stored: sample_telemetry.json
+2026-01-04 22:45:29,610 INFO Processed and stored: invalid_3.json
+2026-01-04 22:45:29,611 INFO Processed and stored: valid_8.json
+2026-01-04 22:45:29,612 INFO Processed and stored: valid_9.json
+2026-01-04 22:45:29,613 INFO Processed and stored: invalid_2.json
+2026-01-04 22:45:29,614 INFO Processed and stored: valid_5.json
+2026-01-04 22:45:29,615 INFO Processed and stored: valid_2.json
+2026-01-04 22:45:29,616 INFO Processed and stored: valid_3.json
+2026-01-04 22:45:29,616 WARNING Invalid file invalid_4.json: 'SpO2' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '9116',
+     'PatientName': 'Alice Smith',
+     'DOB': '1980-05-12',
+     'BPM': 74,
+     'Timestamp': '2025-12-22T04:45:29Z'}
+2026-01-04 22:45:29,617 INFO Processed and stored: valid_0.json
+2026-01-04 22:45:29,618 INFO Processed and stored: valid_1.json
+2026-01-04 22:45:29,619 INFO Processed and stored: valid_6.json
+2026-01-04 22:45:29,620 INFO Processed and stored: invalid_1.json
+2026-01-04 22:45:29,621 WARNING Invalid file invalid_0.json: 'SpO2' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '4213',
+     'PatientName': 'Charlie Lee',
+     'DOB': '1990-01-30',
+     'BPM': 94,
+     'Timestamp': '2025-12-30T04:45:29Z'}
+2026-01-04 22:45:29,622 INFO Processed and stored: valid_7.json
+2026-01-04 22:45:51,862 INFO Test files generated in data/raw.
+2026-01-04 22:45:52,025 INFO Processed and stored: valid_4.json
+2026-01-04 22:45:52,026 INFO Processed and stored: sample_telemetry.json
+2026-01-04 22:45:52,027 WARNING Invalid file invalid_3.json: -5 is less than the minimum of 0
+
+Failed validating 'minimum' in schema['properties']['SpO2']:
+    {'type': 'integer', 'minimum': 0, 'maximum': 100}
+
+On instance['SpO2']:
+    -5
+2026-01-04 22:45:52,028 INFO Processed and stored: valid_8.json
+2026-01-04 22:45:52,030 INFO Processed and stored: valid_9.json
+2026-01-04 22:45:52,030 WARNING Invalid file invalid_2.json: 'PatientName' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '1237',
+     'DOB': '1990-01-30',
+     'BPM': 90,
+     'SpO2': 98,
+     'Timestamp': '2025-12-11T04:45:51Z'}
+2026-01-04 22:45:52,031 INFO Processed and stored: valid_5.json
+2026-01-04 22:45:52,032 INFO Processed and stored: valid_2.json
+2026-01-04 22:45:52,033 INFO Processed and stored: valid_3.json
+2026-01-04 22:45:52,034 INFO Processed and stored: invalid_4.json
+2026-01-04 22:45:52,035 INFO Processed and stored: valid_0.json
+2026-01-04 22:45:52,036 INFO Processed and stored: valid_1.json
+2026-01-04 22:45:52,037 INFO Processed and stored: valid_6.json
+2026-01-04 22:45:52,038 WARNING Invalid file invalid_1.json: -5 is less than the minimum of 0
+
+Failed validating 'minimum' in schema['properties']['SpO2']:
+    {'type': 'integer', 'minimum': 0, 'maximum': 100}
+
+On instance['SpO2']:
+    -5
+2026-01-04 22:45:52,039 WARNING Invalid file invalid_0.json: 'PatientName' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '5512',
+     'DOB': '1980-05-12',
+     'BPM': 69,
+     'SpO2': 96,
+     'Timestamp': '2025-12-30T04:45:51Z'}
+2026-01-04 22:45:52,040 INFO Processed and stored: valid_7.json
+2026-01-04 22:46:21,127 INFO Test files generated in data/raw.
+2026-01-04 22:46:21,290 INFO Processed and stored: valid_4.json
+2026-01-04 22:46:21,291 INFO Processed and stored: sample_telemetry.json
+2026-01-04 22:46:21,291 WARNING Invalid file invalid_3.json: 'BPM' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '5245',
+     'PatientName': 'Bob Jones',
+     'DOB': '1975-09-23',
+     'SpO2': 94,
+     'Timestamp': '2025-12-29T04:46:21Z'}
+2026-01-04 22:46:21,292 INFO Processed and stored: valid_8.json
+2026-01-04 22:46:21,293 INFO Processed and stored: valid_9.json
+2026-01-04 22:46:21,294 WARNING Invalid file invalid_2.json: -5 is less than the minimum of 0
+
+Failed validating 'minimum' in schema['properties']['SpO2']:
+    {'type': 'integer', 'minimum': 0, 'maximum': 100}
+
+On instance['SpO2']:
+    -5
+2026-01-04 22:46:21,295 INFO Processed and stored: valid_5.json
+2026-01-04 22:46:21,296 INFO Processed and stored: valid_2.json
+2026-01-04 22:46:21,297 INFO Processed and stored: valid_3.json
+2026-01-04 22:46:21,298 INFO Processed and stored: invalid_4.json
+2026-01-04 22:46:21,299 INFO Processed and stored: valid_0.json
+2026-01-04 22:46:21,300 INFO Processed and stored: valid_1.json
+2026-01-04 22:46:21,301 INFO Processed and stored: valid_6.json
+2026-01-04 22:46:21,302 WARNING Invalid file invalid_1.json: 150 is greater than the maximum of 100
+
+Failed validating 'maximum' in schema['properties']['SpO2']:
+    {'type': 'integer', 'minimum': 0, 'maximum': 100}
+
+On instance['SpO2']:
+    150
+2026-01-04 22:46:21,302 WARNING Invalid file invalid_0.json: 'DOB' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '4044',
+     'PatientName': 'Charlie Lee',
+     'BPM': 110,
+     'SpO2': 91,
+     'Timestamp': '2026-01-05T04:46:21Z'}
+2026-01-04 22:46:21,304 INFO Processed and stored: valid_7.json
+2026-01-04 22:46:58,714 INFO Test files generated in data/raw.
+2026-01-04 22:46:58,866 INFO Processed and stored: valid_4.json
+2026-01-04 22:46:58,874 INFO Processed and stored: sample_telemetry.json
+2026-01-04 22:46:58,875 WARNING Invalid file invalid_3.json: 'DOB' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '3592',
+     'PatientName': 'Bob Jones',
+     'BPM': 66,
+     'SpO2': 92,
+     'Timestamp': '2026-01-02T04:46:58Z'}
+2026-01-04 22:46:58,878 INFO Processed and stored: valid_8.json
+2026-01-04 22:46:58,879 INFO Processed and stored: valid_9.json
+2026-01-04 22:46:58,879 WARNING Invalid file invalid_2.json: -5 is less than the minimum of 0
+
+Failed validating 'minimum' in schema['properties']['SpO2']:
+    {'type': 'integer', 'minimum': 0, 'maximum': 100}
+
+On instance['SpO2']:
+    -5
+2026-01-04 22:46:58,880 INFO Processed and stored: valid_5.json
+2026-01-04 22:46:58,881 INFO Processed and stored: valid_2.json
+2026-01-04 22:46:58,882 INFO Processed and stored: valid_3.json
+2026-01-04 22:46:58,883 INFO Processed and stored: invalid_4.json
+2026-01-04 22:46:58,884 INFO Processed and stored: valid_0.json
+2026-01-04 22:46:58,885 INFO Processed and stored: valid_1.json
+2026-01-04 22:46:58,886 INFO Processed and stored: valid_6.json
+2026-01-04 22:46:58,886 WARNING Invalid file invalid_1.json: 'SpO2' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '2441',
+     'PatientName': 'Bob Jones',
+     'DOB': '1975-09-23',
+     'BPM': 91,
+     'Timestamp': '2025-12-06T04:46:58Z'}
+2026-01-04 22:46:58,887 WARNING Invalid file invalid_0.json: 'PatientName' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '5232',
+     'DOB': '1990-01-30',
+     'BPM': 101,
+     'SpO2': 96,
+     'Timestamp': '2025-12-25T04:46:58Z'}
+2026-01-04 22:46:58,888 INFO Processed and stored: valid_7.json
+2026-01-04 22:47:25,000 INFO Test files generated in data/raw.
+2026-01-04 22:47:25,188 INFO Processed and stored: valid_4.json
+2026-01-04 22:47:25,189 INFO Processed and stored: sample_telemetry.json
+2026-01-04 22:47:25,189 WARNING Invalid file invalid_3.json: -5 is less than the minimum of 0
+
+Failed validating 'minimum' in schema['properties']['SpO2']:
+    {'type': 'integer', 'minimum': 0, 'maximum': 100}
+
+On instance['SpO2']:
+    -5
+2026-01-04 22:47:25,190 INFO Processed and stored: valid_8.json
+2026-01-04 22:47:25,191 INFO Processed and stored: valid_9.json
+2026-01-04 22:47:25,193 INFO Processed and stored: invalid_2.json
+2026-01-04 22:47:25,194 INFO Processed and stored: valid_5.json
+2026-01-04 22:47:25,194 INFO Processed and stored: valid_2.json
+2026-01-04 22:47:25,195 INFO Processed and stored: valid_3.json
+2026-01-04 22:47:25,196 WARNING Invalid file invalid_4.json: 'Timestamp' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '6897',
+     'PatientName': 'Alice Smith',
+     'DOB': '1980-05-12',
+     'BPM': 101,
+     'SpO2': 98}
+2026-01-04 22:47:25,197 INFO Processed and stored: valid_0.json
+2026-01-04 22:47:25,198 INFO Processed and stored: valid_1.json
+2026-01-04 22:47:25,199 INFO Processed and stored: valid_6.json
+2026-01-04 22:47:25,199 WARNING Invalid file invalid_1.json: 'DOB' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '2347',
+     'PatientName': 'Alice Smith',
+     'BPM': 77,
+     'SpO2': 90,
+     'Timestamp': '2025-12-13T04:47:25Z'}
+2026-01-04 22:47:25,200 WARNING Invalid file invalid_0.json: -5 is less than the minimum of 0
+
+Failed validating 'minimum' in schema['properties']['SpO2']:
+    {'type': 'integer', 'minimum': 0, 'maximum': 100}
+
+On instance['SpO2']:
+    -5
+2026-01-04 22:47:25,201 INFO Processed and stored: valid_7.json
+2026-01-04 22:48:14,594 INFO Test files generated in data/raw.
+2026-01-04 22:48:14,779 INFO Processed and stored: valid_4.json
+2026-01-04 22:48:14,780 INFO Processed and stored: sample_telemetry.json
+2026-01-04 22:48:14,781 WARNING Invalid file invalid_3.json: 'SpO2' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '5603',
+     'PatientName': 'Bob Jones',
+     'DOB': '1975-09-23',
+     'BPM': 75,
+     'Timestamp': '2026-01-02T04:48:14Z'}
+2026-01-04 22:48:14,782 INFO Processed and stored: valid_8.json
+2026-01-04 22:48:14,783 INFO Processed and stored: valid_9.json
+2026-01-04 22:48:14,784 INFO Processed and stored: invalid_2.json
+2026-01-04 22:48:14,785 INFO Processed and stored: valid_5.json
+2026-01-04 22:48:14,786 INFO Processed and stored: valid_2.json
+2026-01-04 22:48:14,787 INFO Processed and stored: valid_3.json
+2026-01-04 22:48:14,788 INFO Processed and stored: invalid_4.json
+2026-01-04 22:48:14,789 INFO Processed and stored: valid_0.json
+2026-01-04 22:48:14,790 INFO Processed and stored: valid_1.json
+2026-01-04 22:48:14,791 INFO Processed and stored: valid_6.json
+2026-01-04 22:48:14,791 WARNING Invalid file invalid_1.json: 'Timestamp' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'type': 'object',
+     'properties': {'DeviceID': {'type': 'string'},
+                    'PatientName': {'type': 'string'},
+                    'DOB': {'type': 'string', 'format': 'date'},
+                    'BPM': {'type': 'integer', 'minimum': 0},
+                    'SpO2': {'type': 'integer',
+                             'minimum': 0,
+                             'maximum': 100},
+                    'Timestamp': {'type': 'string'}},
+     'required': ['DeviceID',
+                  'PatientName',
+                  'DOB',
+                  'BPM',
+                  'SpO2',
+                  'Timestamp']}
+
+On instance:
+    {'DeviceID': '2222',
+     'PatientName': 'Bob Jones',
+     'DOB': '1975-09-23',
+     'BPM': 72,
+     'SpO2': 93}
+2026-01-04 22:48:14,793 INFO Processed and stored: invalid_0.json
+2026-01-04 22:48:14,794 INFO Processed and stored: valid_7.json
+2026-01-04 22:48:15,267 INFO ALICE SMITH: Avg BPM=81.3, Avg SpO2=96.1
+2026-01-04 22:48:15,267 INFO CHARLIE LEE: Avg BPM=86.4, Avg SpO2=95.1
+2026-01-04 22:48:15,267 INFO BOB JONES: Avg BPM=82.8, Avg SpO2=95.5
+2026-01-04 22:48:15,268 INFO Exported patient summary to patient_summary.csv

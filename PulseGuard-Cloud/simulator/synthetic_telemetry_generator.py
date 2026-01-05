@@ -4,9 +4,12 @@ import uuid
 import boto3
 from datetime import datetime
 
+
 # --- CONFIGURATION ---
-# Replace this with your terraform output: pulseguard-*7
-BUCKET_NAME = "YOUR_S3_BUCKET_NAME_HERE" 
+# Set BUCKET_NAME via environment variable for security and consistency.
+# Example: add PG_S3_BUCKET=your-bucket-name to your .env file
+import os
+BUCKET_NAME = os.environ.get('PG_S3_BUCKET', "YOUR_S3_BUCKET_NAME_HERE")
 
 PATIENTS = [
     {"PatientName": "Alice Smith", "DOB": "1980-05-12"},
