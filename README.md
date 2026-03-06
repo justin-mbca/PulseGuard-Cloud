@@ -40,19 +40,6 @@ If you have terminated your AWS resources to save costs, follow these steps to r
 
 You should now be able to connect to your AWS RDS PostgreSQL instance securely via pgAdmin 4.
 
----
-# About Boston Scientific
-
-Boston Scientific transforms lives through innovative medical technologies that improve the health of patients around the world. As a global medical technology leader for more than 40 years, we advance science for life by providing a broad range of high-performance solutions that address unmet patient needs and reduce the cost of health care. Our portfolio of devices and therapies helps physicians diagnose and treat complex cardiovascular, respiratory, digestive, oncological, neurological and urological diseases and conditions.
-
-# Role Relevance: Medical Data Specialist II
-
-This project demonstrates:
-- Secure, HIPAA-compliant cloud data architecture (AWS, Terraform)
-- Automated ETL pipelines and real-time data ingestion (Python, Spark, Lambda)
-- Clinical data modeling (PostgreSQL, FHIR/HL7-ready schemas)
-- API/data delivery design (RESTful, HL7/FHIR integration planned)
-- Automation, monitoring, and compliance (CI/CD, CloudTrail, encryption)
 
 # Skills Demonstrated
 
@@ -250,17 +237,8 @@ I developed a relational schema specifically for high-frequency medical device d
 
 ---
 
-### 💡 Interview Talking Points for Boston Scientific
 
-When you hand this over or discuss it with Ty or the hiring manager, mention these three things:
-
-1. **"Regulated Mindset":** "I didn't just build a database; I built a *private* environment because I understand that medical data is a liability if not handled with a HIPAA-first mindset."
-2. **"Automation":** "I used Terraform because, in a medical device setting, we need consistency. Manual clicks in the console lead to human error; code leads to validation."
-3. **"End-to-End":** "I handled everything from the network routing (NAT Gateways) to the SQL data types for the heart rate readings."
-
-**Would you like me to create a "Technical Interview Cheat Sheet" for you with common questions they might ask about this specific architecture?**
-
-# Project Summary for Boston Scientific (Medical Data Specialist)
+# Project Summary
 
 ## Project Name: PulseGuard Clinical Telemetry Infrastructure
 
