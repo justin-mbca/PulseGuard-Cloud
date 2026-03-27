@@ -7,36 +7,36 @@ If you have terminated your AWS resources to save costs, follow these steps to r
 ### 1. Restart AWS Infrastructure with Terraform
 
 1. Open a terminal and navigate to the terraform directory:
-	```sh
-	cd terraform
-	```
+  ```sh
+  cd terraform
+  ```
 2. Initialize Terraform (only needed if not already initialized):
-	```sh
-	terraform init
-	```
+  ```sh
+  terraform init
+  ```
 3. Apply the Terraform configuration to recreate all resources:
-	```sh
-	terraform apply
-	```
-	- Review the plan and type `yes` to confirm.
-	- Wait for the process to complete. Note the output values for the Bastion public IP and RDS endpoint.
+  ```sh
+  terraform apply
+  ```
+  - Review the plan and type `yes` to confirm.
+  - Wait for the process to complete. Note the output values for the Bastion public IP and RDS endpoint.
 
 ### 2. Access PostgreSQL with pgAdmin 4
 
 1. Start pgAdmin 4 on your local machine.
 2. Set up an SSH tunnel from your local machine to the Bastion Host:
-	```sh
-	ssh -i /path/to/your/pulseguard-key.pem -L 5432:<RDS_ENDPOINT>:5432 ec2-user@<BASTION_PUBLIC_IP>
-	```
-	- Replace `/path/to/your/pulseguard-key.pem` with your actual key file path.
-	- Replace `<RDS_ENDPOINT>` and `<BASTION_PUBLIC_IP>` with the values from the Terraform output.
-	- Keep this terminal window open while using pgAdmin.
+  ```sh
+  ssh -i /path/to/your/pulseguard-key.pem -L 5432:<RDS_ENDPOINT>:5432 ec2-user@<BASTION_PUBLIC_IP>
+  ```
+  - Replace `/path/to/your/pulseguard-key.pem` with your actual key file path.
+  - Replace `<RDS_ENDPOINT>` and `<BASTION_PUBLIC_IP>` with the values from the Terraform output.
+  - Keep this terminal window open while using pgAdmin.
 3. In pgAdmin 4, create a new connection:
-	- **Host:** `localhost`
-	- **Port:** `5432`
-	- **Username:** `pulse_admin`
-	- **Password:** `changeMe123!` (or your updated password)
-	- **Database:** `clinical_insights`
+  - **Host:** `localhost`
+  - **Port:** `5432`
+  - **Username:** `pulse_admin`
+  - **Password:** `changeMe123!` (or your updated password)
+  - **Database:** `clinical_insights`
 
 You should now be able to connect to your AWS RDS PostgreSQL instance securely via pgAdmin 4.
 
@@ -54,69 +54,69 @@ You should now be able to connect to your AWS RDS PostgreSQL instance securely v
 
 ```mermaid
 flowchart TD
-	VPC["VPC<br>(HIPAA boundary)"]
-	IGW["Internet Gateway"]
-	subgraph Public_Subnet_10_0_1_0_24
-		Bastion["Bastion Host (EC2)<br>API/Data Ingestion Layer<br>Python, Flask/FastAPI"]
-	end
-	subgraph Private_Subnet_10_0_2_0_24
-		RDS["RDS clinical_insights<br>(PostgreSQL, Encrypted, Audit Logging, FHIR/HL7-ready)"]
-		Lambda["AWS Lambda<br>(Serverless ETL, Data Validation)"]
-		Glue["AWS Glue<br>(ETL Pipelines)"]
-		Spark["Spark/EMR<br>(Streaming Analytics)"]
-	end
-	S3["S3 Bucket raw_telemetry<br>(Encrypted, Data Lake)"]
-	Athena["Athena<br>(Historical Analytics)"]
-	Monitor["Monitoring & Audit<br>(CloudTrail, Activity Streams, KMS)"]
-	Secrets["AWS Secrets Manager<br>(Credentials)"]
-	CI["CI/CD Pipeline<br>GitHub Actions, Terraform"]
-	API["RESTful API, HL7/FHIR<br>Data Integration"]
-	SNS["AWS SNS<br>Real-time Alerts"]
-	Dashboard["Dashboard<br>Streamlit/QuickSight"]
-	Terraform["Terraform<br>Infrastructure as Code"]
+  VPC["VPC<br>(HIPAA boundary)"]
+  IGW["Internet Gateway"]
+  subgraph Public_Subnet_10_0_1_0_24
+    Bastion["Bastion Host (EC2)<br>API/Data Ingestion Layer<br>Python, Flask/FastAPI"]
+  end
+  subgraph Private_Subnet_10_0_2_0_24
+    RDS["RDS clinical_insights<br>(PostgreSQL, Encrypted, Audit Logging, FHIR/HL7-ready)"]
+    Lambda["AWS Lambda<br>(Serverless ETL, Data Validation)"]
+    Glue["AWS Glue<br>(ETL Pipelines)"]
+    Spark["Spark/EMR<br>(Streaming Analytics)"]
+  end
+  S3["S3 Bucket raw_telemetry<br>(Encrypted, Data Lake)"]
+  Athena["Athena<br>(Historical Analytics)"]
+  Monitor["Monitoring & Audit<br>(CloudTrail, Activity Streams, KMS)"]
+  Secrets["AWS Secrets Manager<br>(Credentials)"]
+  CI["CI/CD Pipeline<br>GitHub Actions, Terraform"]
+  API["RESTful API, HL7/FHIR<br>Data Integration"]
+  SNS["AWS SNS<br>Real-time Alerts"]
+  Dashboard["Dashboard<br>Streamlit/QuickSight"]
+  Terraform["Terraform<br>Infrastructure as Code"]
 
-	VPC --> IGW
-	IGW --> Bastion
-	Bastion -- "SSH Tunnel 5432" --> RDS
-	VPC --> RDS
-	VPC --> S3
-	RDS -.-> S3
-	S3 --> Glue
-	S3 --> Spark
-	S3 --> Athena
-	S3 --> Monitor
-	S3 --> Lambda
-	Lambda --> RDS
-	Lambda --> Glue
-	Glue --> RDS
-	Glue --> Spark
-	Spark --> RDS
-	RDS --> Monitor
-	RDS --> Athena
-	RDS --> API
-	API --> Bastion
-	API --> Lambda
-	API --> Glue
-	API --> RDS
-	API --> S3
-	API --> Dashboard
-	Dashboard --> Athena
-	Dashboard --> S3
-	Dashboard --> RDS
-	Athena --> Dashboard
-	Monitor --> CI
-	CI --> Terraform
-	Terraform --> VPC
-	Terraform --> RDS
-	Terraform --> S3
-	Terraform --> Lambda
-	Terraform --> Glue
-	Terraform --> Bastion
-	S3 --> Secrets
-	RDS --> Secrets
-	Lambda --> Secrets
-	Lambda --> SNS
-	SNS --> Dashboard
+  VPC --> IGW
+  IGW --> Bastion
+  Bastion -- "SSH Tunnel 5432" --> RDS
+  VPC --> RDS
+  VPC --> S3
+  RDS -.-> S3
+  S3 --> Glue
+  S3 --> Spark
+  S3 --> Athena
+  S3 --> Monitor
+  S3 --> Lambda
+  Lambda --> RDS
+  Lambda --> Glue
+  Glue --> RDS
+  Glue --> Spark
+  Spark --> RDS
+  RDS --> Monitor
+  RDS --> Athena
+  RDS --> API
+  API --> Bastion
+  API --> Lambda
+  API --> Glue
+  API --> RDS
+  API --> S3
+  API --> Dashboard
+  Dashboard --> Athena
+  Dashboard --> S3
+  Dashboard --> RDS
+  Athena --> Dashboard
+  Monitor --> CI
+  CI --> Terraform
+  Terraform --> VPC
+  Terraform --> RDS
+  Terraform --> S3
+  Terraform --> Lambda
+  Terraform --> Glue
+  Terraform --> Bastion
+  S3 --> Secrets
+  RDS --> Secrets
+  Lambda --> Secrets
+  Lambda --> SNS
+  SNS --> Dashboard
 ```
 
 ## Tool & Technology Map
